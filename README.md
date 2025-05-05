@@ -66,6 +66,5 @@ This project is licensed under the MIT License.
 If you have any questions or issues, feel free to reach out to the maintainers:
 
 Maintainer: Yash Patil
-<!-- Email: prajwalgbdr03@gmail.com -->
 
 Happy recruiting with Gemini Pro ATS!
