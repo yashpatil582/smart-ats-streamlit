@@ -27,7 +27,7 @@ git clone https://github.com/praj2408/End-To-End-Resume-ATS-Tracking-LLM-Project
 pip install -r requirements.txt
 ```
 
-3. Set up Gemini Pro API credentials:
+<!-- 3. Set up Gemini Pro API credentials:
  - Obtain API credentials from the makersuit platform.
 
  - Create a file named .env in the project root directory.
@@ -35,7 +35,7 @@ pip install -r requirements.txt
  - Add the following lines to .env:
    ```bash
    GOOGLE_API_KEY= "your_api_key"
-   ```
+   ``` -->
 
 ## Usage
 1. Run the application:
@@ -65,7 +65,7 @@ This project is licensed under the MIT License.
 ## Contact
 If you have any questions or issues, feel free to reach out to the maintainers:
 
-Maintainer: Prajwal Krishna
-Email: prajwalgbdr03@gmail.com
+Maintainer: Yash Patil
+<!-- Email: prajwalgbdr03@gmail.com -->
 
 Happy recruiting with Gemini Pro ATS!
