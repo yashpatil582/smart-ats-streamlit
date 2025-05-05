@@ -9,6 +9,8 @@ import json
 # Utility Functions
 # ----------------------------
 
+MODEL_NAME = "mistral-small3.1"  # centralised model selector
+
 def add_vertical_space(lines: int = 1):
     """Simple vertical spacer that avoids the streamlit‑extras dependency."""
     for _ in range(lines):
@@ -43,9 +45,9 @@ def find_email(text):
 
 
 def call_llama(prompt: str) -> str:
-    """Send a single‑turn prompt to Llama 3.1 via the local Ollama server."""
+    """Send a single‑turn prompt to the local model via Ollama."""
     response = ollama.chat(
-        model="llama3.1",  # make sure the model is pulled: `ollama pull llama3.1`
+        model=MODEL_NAME,  # uses the global model selector
         messages=[{"role": "user", "content": prompt}]
     )
     return response["message"]["content"].strip()
@@ -55,14 +57,14 @@ def call_llama(prompt: str) -> str:
 # Streamlit UI
 # ----------------------------
 
-st.set_page_config(page_title="Smart ATS with Llama 3.1", page_icon="📄")
+st.set_page_config(page_title="Smart ATS with Mistral Small 3.1", page_icon="📄")
 
 with st.sidebar:
     st.title("Smart ATS for Resumes (OSS Edition)")
     st.subheader("About")
     st.write(
-        """
-        **Open‑source résumé matcher** leveraging 🦙 **Llama 3.1** locally via **Ollama**.
+        f"""
+        **Open‑source résumé matcher** leveraging 🦙 **{MODEL_NAME}** locally via **Ollama**.
         
         * Scores your résumé against a job description
         * Surfaces missing keywords
@@ -96,7 +98,7 @@ if st.button("🚀 Evaluate"):
         st.error("Both résumé and job‑description content are required.")
         st.stop()
 
-    # Construct Llama prompt
+    # Construct model prompt
     prompt = (
         "You are an advanced Applicant Tracking System (ATS) specialising in technical roles. "
         "Evaluate the résumé against the job description and respond in **valid JSON** with keys "
